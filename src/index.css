@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:600,700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  min-height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.cs-w{
+  width: 35% !important;
+}
+
+.cs-btn{
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+
+  background-color: transparent !important;
+  color: white !important;
+  border: solid 2px white !important;
+}
+
+.cs-btn:hover{
+  background-color: white !important;
+  color: hsl(214, 47%, 23%) !important;
+}
+
+.cs-btn-def{
+  width: 175px !important;
+  height: 175px !important;
+  border-radius: 50% !important;
+  background-color: white !important;
+}
+
+.cs-btn-def.disabled, .cs-btn-def:disabled {
+  opacity: 1 !important;
+}
+
+.cs-btn-paper{
+  border: 20px solid hsl(230, 89%, 62%) !important;
+}
+
+.cs-btn-paper:hover{
+  border: 20px solid white !important;
+  background-color: hsl(230, 89%, 62%) !important;
+}
+
+.cs-btn-scissors{
+  border: 20px solid hsl(39, 89%, 49%) !important;
+}
+
+.cs-btn-scissors:hover{
+  border: 20px solid white !important;
+  background-color: hsl(39, 89%, 49%) !important;
+}
+
+.cs-btn-rock{
+  border: 20px solid hsl(349, 71%, 52%) !important;
+}
+
+.cs-btn-rock:hover{
+  border: 20px solid white !important;
+  background-color: hsl(349, 71%, 52%) !important;
+}
+
+.cs-btn-2{
+  background-color: white !important;
+  color: hsl(214, 47%, 23%) !important;
+  border: none !important;
+  letter-spacing: 5px;
+  font-size: 3vh !important;
+  font-weight: 700 !important;
+}
+
+.cs-btn-2:hover{
+  color: hsl(349, 71%, 52%) !important;
+}
+
+.cs-page{
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes zoomOut {
+  from {
+      transform: scale(1);
+      opacity: 1;
+  }
+  to {
+      transform: scale(0.3);
+      opacity: 0;
+  }
+}
+
+.zoom-out-animation {
+  animation: zoomOut 0.5s forwards; /* Adjust the duration as needed */
+}
