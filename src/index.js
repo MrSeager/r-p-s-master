@@ -11,7 +11,7 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/r-p-s-master",
     element: <MainGame />,
   },
 ]);
