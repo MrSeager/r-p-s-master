@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   min-height: 100vh;
+  overflow-y: hidden;
 }
 
 code {
@@ -36,8 +37,8 @@ code {
 .cs-btn-def{
   width: 175px !important;
   height: 175px !important;
-  border-radius: 50% !important;
   background-color: white !important;
+  transition: .3s !important;
 }
 
 .cs-btn-def.disabled, .cs-btn-def:disabled {
@@ -93,6 +94,32 @@ code {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.cs-win{
+  position: relative;
+  transition: 1s;
+}
+
+.cs-win::before{
+  position: absolute;
+  content: '';
+  z-index: -1;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.15) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0) 100%);
+  border-radius: 50%;
+  animation: scaleUp 2s forwards;
+}
+
+.cs-fc {
+  color: hsl(229, 64%, 46%) !important;
+}
+
+.cs-fc-2 {
+  color: hsl(217, 16%, 45%) !important;
+}
+
 @keyframes zoomOut {
   from {
       transform: scale(1);
@@ -101,6 +128,15 @@ code {
   to {
       transform: scale(0.3);
       opacity: 0;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(5);
   }
 }
 
