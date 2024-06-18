@@ -37,10 +37,10 @@ const MainGame = () => {
     AOS.init();
 
     return (
-        <Container className='d-flex flex-column'>
-            <Container data-aos="fade-down" className='border rounded d-flex flex-row justify-content-between w-75 mt-5 py-2'>
-                <h1 className='text-uppercase display-5 text-white p-0 m-0'>Rock<br /> Paper<br /> Scissors</h1>
-                <Container className='w-25 bg-white rounded m-3 d-flex flex-column align-items-center justify-content-center'>
+        <Container fluid className='d-flex flex-column align-items-center gap-5'>
+            <Container data-aos="fade-down" className='border rounded d-flex flex-row justify-content-between gap-5 cs-w-2 mt-5 py-2'>
+                <h1 className='lh-1 text-uppercase display-5 text-white p-0 m-0'>Rock<br /> Paper<br /> Scissors</h1>
+                <Container className='cs-w-3 bg-white rounded m-2 d-flex flex-column align-items-center justify-content-center'>
                     <h2 className='text-uppercase cs-fc h4'>Score</h2>
                     <h3 className='display-3 cs-fc-2'>{playerScore} x {houseScore}</h3>
                 </Container>
@@ -77,17 +77,17 @@ const GameStep1 = ({setUserPick, setShowGameStep1, setShowGameStep2, setHousePic
     };
     
     return (
-        <Container className='mt-5 cs-w'>
-            <Col className='mx-auto'>
-                <Row className='justify-content-between'>
-                    <Button data-aos="fade-right" className='rounded-circle cs-btn-def cs-btn-paper' 
-                            onClick={() => handlePlayerPick(options[0])}><Image src={ImgPaper} alt='paper' /></Button>
-                    <Button data-aos="fade-left" className='rounded-circle cs-btn-def cs-btn-scissors' 
-                            onClick={() => handlePlayerPick(options[1])}><Image src={ImgScissors} alt='scissors' /></Button>
+        <Container className='cs-w'>
+            <Col>
+                <Row className='mb-3 justify-content-between'>
+                    <Button data-aos="fade-right" className='cs-pos-item-1 rounded-circle cs-btn-def cs-btn-paper' 
+                            onClick={() => handlePlayerPick(options[0])}><Image fluid src={ImgPaper} alt='paper' /></Button>
+                    <Button data-aos="fade-left" className='cs-pos-item-2 rounded-circle cs-btn-def cs-btn-scissors' 
+                            onClick={() => handlePlayerPick(options[1])}><Image fluid src={ImgScissors} alt='scissors' /></Button>
                 </Row>
-                <Row data-aos="fade-down" className='mt-4 justify-content-center'>
-                    <Button className='rounded-circle cs-btn-def cs-btn-rock' 
-                            onClick={() => handlePlayerPick(options[2])}><Image src={ImgRock} alt='rock' /></Button>
+                <Row className='justify-content-center'>
+                    <Button data-aos="fade-up" className='cs-pos-item-3 rounded-circle cs-btn-def cs-btn-rock' 
+                            onClick={() => handlePlayerPick(options[2])}><Image fluid src={ImgRock} alt='rock' /></Button>     
                 </Row>
             </Col>
         </Container>
@@ -145,18 +145,18 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
     };
 
     return (
-        <Container className='mt-5 w-75'>
+        <Container className='mt-5 cs-w-2'>
             <Row className='text-white text-uppercase'>
-                <Col data-aos="fade-right" className='d-flex flex-column align-items-center'>
+                <Col xs={{span: 6, order: 1}} lg={{span: 4, order: 1}} data-aos="fade-right" className='d-flex flex-column align-items-center'>
                     <h4 className='text-center'>You picked</h4>
                     <Button disabled className={`cs-btn-def rounded-circle cs-btn-${userPick} ${result === 'You win' && 'cs-win'}`}><Image src={userPickImg} alt='user pick' /></Button>
                 </Col>
-                <Col data-aos="fade-up" className='d-flex flex-column align-items-center justify-content-center'>
+                <Col xs={{span: 12, order: 3}} lg={{span: 4, order: 2}} data-aos="fade-up" className='d-flex flex-column align-items-center justify-content-center'>
                     <h4 className='display-4'>{result}</h4>
                     <Button className='cs-btn-2 py-3 px-4 text-uppercase' 
                             onClick={handlePlayAgain}>Play again</Button>
                 </Col>
-                <Col data-aos="fade-left" className='d-flex flex-column align-items-center'>
+                <Col xs={{span: 6, order: 2}} lg={{span: 4, order: 3}} data-aos="fade-left" className='d-flex flex-column align-items-center'>
                     <h4>The house picked</h4>
                     <Button disabled className={`cs-btn-def rounded-circle cs-btn-${housePick} ${result === 'You lose' && 'cs-win'}`}><Image src={housePickImg} alt='house pick' /></Button>
                 </Col>

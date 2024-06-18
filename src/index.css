@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to bottom, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 code {
@@ -16,6 +16,14 @@ code {
 }
 
 .cs-w{
+  width: 30% !important;
+}
+
+.cs-w-2{
+  width: 55% !important;
+}
+
+.cs-w-3{
   width: 35% !important;
 }
 
@@ -35,8 +43,8 @@ code {
 }
 
 .cs-btn-def{
-  width: 175px !important;
-  height: 175px !important;
+  width: 25vh !important;
+  height: 25vh !important;
   background-color: white !important;
   transition: .3s !important;
 }
@@ -142,4 +150,25 @@ code {
 
 .zoom-out-animation {
   animation: zoomOut 0.5s forwards; /* Adjust the duration as needed */
+}
+
+@media (max-width: 921px) {
+  body{
+    overflow-y: auto;
+  }
+  .cs-w{
+    width: 60% !important;
+  }
+
+  .cs-w-2{
+    width: 100% !important;
+  }
+
+  .cs-btn{
+    position: relative !important;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+    margin-bottom: 5%;
+  }
 }
