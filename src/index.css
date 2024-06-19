@@ -16,7 +16,7 @@ code {
 }
 
 .cs-w{
-  width: 30% !important;
+  width: 40% !important;
 }
 
 .cs-w-2{
@@ -43,8 +43,6 @@ code {
 }
 
 .cs-btn-def{
-  width: 25vh !important;
-  height: 25vh !important;
   background-color: white !important;
   transition: .3s !important;
 }
@@ -128,6 +126,48 @@ code {
   color: hsl(217, 16%, 45%) !important;
 }
 
+.cs-line-1, .cs-line-2, .cs-line-3{
+  position: relative;
+}
+
+.cs-line-1::before{
+  position: absolute;
+  content: '';
+  background-color: black;
+  opacity: .3;
+  width: 200%;
+  height: 15px;
+  left: 50%;
+  top: 45%;
+  z-index: -1;
+}
+
+.cs-line-2::before{
+  position: absolute;
+  content: '';
+  background-color: black;
+  opacity: .3;
+  width: 150%;
+  height: 15px;
+  top: 100%;
+  right: 25%;
+  transform: rotate(-45deg);
+  z-index: -1;
+}
+
+.cs-line-3::before{
+  position: absolute;
+  content: '';
+  background-color: black;
+  opacity: .3;
+  width: 150%;
+  height: 15px;
+  bottom: 90%;
+  right: 25%;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
 @keyframes zoomOut {
   from {
       transform: scale(1);
@@ -157,7 +197,7 @@ code {
     overflow-y: auto;
   }
   .cs-w{
-    width: 60% !important;
+    width: 100% !important;
   }
 
   .cs-w-2{
