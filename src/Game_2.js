@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { useNavigate } from 'react-router-dom';
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack  } from "react-icons/io";
 //Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
 import {Container, Col, Row, Button, Image } from 'react-bootstrap';
@@ -14,22 +14,24 @@ import 'aos/dist/aos.css';
 import ImgPaper from './images/icon-paper.svg';
 import ImgScissors from './images/icon-scissors.svg';
 import ImgRock from './images/icon-rock.svg';
+import ImgLizard from './images/icon-lizard.svg';
+import ImgSpock from './images/icon-spock.svg';
 
 import ImgClose from './images/icon-close.svg';
-import ImgRules from './images/image-rules.svg';
+import ImgRules from './images/image-rules-bonus.svg';
 
-const MainGame = () => {
+const Game_2 = () => {
     const navigate = useNavigate();
     const [showRules, setShowRules] = useState(false);
     const [showGameStep1, setShowGameStep1] = useState(true);
     const [showGameStep2, setShowGameStep2] = useState(false);
     const [userPick, setUserPick] = useState('');
     const [housePick, setHousePick] = useState('');
-    const [playerScore, setPlayerScore] = useState(JSON.parse(localStorage.getItem('playerScore')) || 0);
-    const [houseScore, setHouseScore] = useState(JSON.parse(localStorage.getItem('houseScore')) || 0);
+    const [playerScore, setPlayerScore] = useState(JSON.parse(localStorage.getItem('playerScore2')) || 0);
+    const [houseScore, setHouseScore] = useState(JSON.parse(localStorage.getItem('houseScore2')) || 0);
 
-    const handleLaunchGame2 = () => {
-        navigate("/r-p-s-l-s-master");
+    const handleLaunchGame1 = () => {
+        navigate("/r-p-s-master");
     };
 
     const toggleRulesPage = () => {
@@ -37,16 +39,16 @@ const MainGame = () => {
     };
 
     useEffect(() => {
-        localStorage.setItem('playerScore', JSON.stringify(playerScore));
-        localStorage.setItem('houseScore', JSON.stringify(houseScore));
+        localStorage.setItem('playerScore2', JSON.stringify(playerScore));
+        localStorage.setItem('houseScore2', JSON.stringify(houseScore));
       }, [playerScore, houseScore]);
 
     AOS.init();
 
     return (
-        <Container fluid className='cs-h overflow-hidden d-flex flex-column align-items-center gap-5'>
+        <Container fluid className='cs-h overflow-hidden d-flex flex-column align-items-center gap-3'>
             <Container data-aos="fade-down" className='border rounded d-flex flex-row align-items-center cs-w-2 mt-5 py-2'>
-                <h1 className='cs-ls-lh text-uppercase display-5 m-3 text-white p-0 m-0'>Rock<br /> Paper<br /> Scissors</h1>
+                <h1 className='cs-ls-lh-2 text-uppercase display-6 m-3 text-white p-0 m-0'>Rock<br />Paper<br />Scissors<br />Lizard<br />Spock</h1>
                 <Container className='me-2 my-2 py-3 cs-w-3 bg-white rounded d-flex flex-column align-items-center justify-content-center'>
                     <h2 className='m-0 text-uppercase cs-fc h5'>Score</h2>
                     <h3 className='m-0 p-0 display-3 cs-fc-2'>{playerScore} x {houseScore}</h3>
@@ -64,13 +66,13 @@ const MainGame = () => {
                                          housePick={housePick} />}
             <Button onClick={toggleRulesPage} className='cs-btn text-uppercase px-4 py-2'>Rules</Button> 
             {showRules && <RulesPage setShowRules={setShowRules} />}
-            <Button onClick={handleLaunchGame2} className='cs-btn-arrow px-2 py-3'><IoIosArrowForward /></Button>
+            <Button onClick={handleLaunchGame1} className='cs-btn-back px-2 py-3'><IoIosArrowBack  /></Button>
         </Container>
     );
 };
 
 const GameStep1 = ({setUserPick, setShowGameStep1, setShowGameStep2, setHousePick}) => {
-    const options = ['paper', 'scissors', 'rock'];
+    const options = ['paper', 'scissors', 'rock', 'lizard', 'spock'];
 
     const randomizePick = () => {
         const randomIndex = Math.floor(Math.random() * options.length);
@@ -85,19 +87,27 @@ const GameStep1 = ({setUserPick, setShowGameStep1, setShowGameStep2, setHousePic
     };
     
     return (
-        <Container className='cs-w items-pos'>
-                    <Button data-aos="fade-right" className='cs-btn-s g-item-1 rounded-circle cs-btn-def cs-btn-paper' 
-                            onClick={() => handlePlayerPick(options[0])}>
-                        <Image fluid src={ImgPaper} alt='paper' className='h-50 w-50' />
-                    </Button>
-                    <Button data-aos="fade-left" className='cs-btn-s g-item-2 rounded-circle cs-btn-def cs-btn-scissors' 
-                            onClick={() => handlePlayerPick(options[1])}>
-                        <Image fluid src={ImgScissors} alt='scissors' className='h-50 w-50' />
-                    </Button>
-                    <Button fluid data-aos="fade-up" className='cs-btn-s g-item-3 rounded-circle cs-btn-def cs-btn-rock' 
-                            onClick={() => handlePlayerPick(options[2])}>
-                        <Image src={ImgRock} alt='rock' className='h-50 w-50' />
-                    </Button>
+        <Container className='p-0 items-pos-2 d-inline'>
+            <Button data-aos="fade-right" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-paper item-1' 
+                    onClick={() => handlePlayerPick(options[0])}>
+                <Image fluid src={ImgPaper} alt='paper' className='h-50 w-50' />
+            </Button>
+            <Button data-aos="fade-left" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-scissors item-2' 
+                    onClick={() => handlePlayerPick(options[1])}>
+                <Image fluid src={ImgScissors} alt='scissors' className='h-50 w-50' />
+            </Button>
+            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-rock item-3' 
+                    onClick={() => handlePlayerPick(options[2])}>
+                <Image src={ImgRock} alt='rock' className='h-50 w-50' />
+            </Button>
+            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-lizard item-4' 
+                    onClick={() => handlePlayerPick(options[3])}>
+                <Image src={ImgLizard} alt='lizard' className='h-50 w-50' />
+            </Button>
+            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-spock item-5' 
+                    onClick={() => handlePlayerPick(options[4])}>
+                <Image src={ImgSpock} alt='spock' className='h-50 w-50' />
+            </Button>
         </Container>
     );
 };
@@ -112,8 +122,12 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
             setUserPickImg(ImgPaper);
         } else if (userPick === 'scissors') {
             setUserPickImg(ImgScissors);
-        } else {
+        } else if (userPick === 'rock') {
             setUserPickImg(ImgRock);
+        } else if (userPick === 'lizard') {
+            setUserPickImg(ImgLizard);
+        } else {
+            setUserPickImg(ImgSpock);
         }
     };
 
@@ -122,17 +136,23 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
             setHousePickImg(ImgPaper);
         } else if (housePick === 'scissors') {
             setHousePickImg(ImgScissors);
-        } else {
+        } else if (housePick === 'rock') {
             setHousePickImg(ImgRock);
+        } else if (housePick === 'lizard') {
+            setHousePickImg(ImgLizard);
+        } else {
+            setHousePickImg(ImgSpock);
         }
     };
 
     const handleResult = () => {
         if (userPick === housePick) {
             setResult('Drow')
-        } else if ((userPick === 'paper' && housePick !== 'scissors') ||
-                   (userPick === 'scissors' && housePick !== 'rock') ||
-                   (userPick === 'rock' && housePick !== 'paper')) {
+        } else if ((userPick === 'paper' && housePick !== 'scissors' && housePick !== 'lizard') ||
+                   (userPick === 'scissors' && housePick !== 'rock' && housePick !== 'spock') ||
+                   (userPick === 'rock' && housePick !== 'paper' && housePick !== 'spock') ||
+                   (userPick === 'lizard' && housePick !== 'rock' && housePick !== 'scissors') ||
+                   (userPick === 'spock' && housePick !== 'lizard' && housePick !== 'paper')) {
             setResult('You win');
             setPlayerScore(prevScore => prevScore + 1);
         } else {
@@ -153,7 +173,7 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
     };
 
     return (
-        <Container className='mt-4 cs-w-2'>
+        <Container className='cs-w-2'>
             <Row className='gap-4 gap-lg-0 text-white text-uppercase justify-content-center'>
                 <Col xs={{span: 5, order: 1}} lg={{span: 4, order: 1}} data-aos="fade-right" 
                      className='px-0 d-flex flex-column align-items-center justify-content-between'>
@@ -209,4 +229,4 @@ const RulesPage = ({setShowRules}) => {
     );
 };
 
-export default MainGame;
+export default Game_2;
