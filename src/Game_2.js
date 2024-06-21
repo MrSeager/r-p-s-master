@@ -87,27 +87,32 @@ const GameStep1 = ({setUserPick, setShowGameStep1, setShowGameStep2, setHousePic
     };
     
     return (
-        <Container className='p-0 items-pos-2 d-inline'>
-            <Button data-aos="fade-right" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-paper item-1' 
+        <Container data-aos="fade-up" className='p-0 items-pos-2 d-inline'>
+            <Button className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-paper item-1' 
                     onClick={() => handlePlayerPick(options[0])}>
                 <Image fluid src={ImgPaper} alt='paper' className='h-50 w-50' />
             </Button>
-            <Button data-aos="fade-left" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-scissors item-2' 
+            <div className='cs-line-2-1'></div>
+            <Button className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-scissors item-2' 
                     onClick={() => handlePlayerPick(options[1])}>
                 <Image fluid src={ImgScissors} alt='scissors' className='h-50 w-50' />
             </Button>
-            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-rock item-3' 
+            <div className='cs-line-2-2'></div>
+            <Button className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-rock item-3' 
                     onClick={() => handlePlayerPick(options[2])}>
-                <Image src={ImgRock} alt='rock' className='h-50 w-50' />
+                <Image fluid src={ImgRock} alt='rock' className='h-50 w-50' />
             </Button>
-            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-lizard item-4' 
+            <div className='cs-line-2-3'></div>
+            <Button className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-lizard item-4' 
                     onClick={() => handlePlayerPick(options[3])}>
-                <Image src={ImgLizard} alt='lizard' className='h-50 w-50' />
+                <Image fluid src={ImgLizard} alt='lizard' className='h-50 w-50' />
             </Button>
-            <Button fluid data-aos="fade-up" className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-spock item-5' 
+            <div className='cs-line-2-4'></div>
+            <Button className='cs-btn-s-2 rounded-circle cs-btn-def cs-btn-spock item-5' 
                     onClick={() => handlePlayerPick(options[4])}>
-                <Image src={ImgSpock} alt='spock' className='h-50 w-50' />
+                <Image fluid src={ImgSpock} alt='spock' className='h-50 w-50' />
             </Button>
+            <div className='cs-line-2-5'></div>
         </Container>
     );
 };
@@ -178,8 +183,8 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
                 <Col xs={{span: 5, order: 1}} lg={{span: 4, order: 1}} data-aos="fade-right" 
                      className='px-0 d-flex flex-column align-items-center justify-content-between'>
                     <h4 className='text-center h3 w-100 mb-5'>You picked</h4>
-                    <Button disabled className={`w-100 py-3 cs-btn-def rounded-circle cs-btn-${userPick} ${result === 'You win' && 'cs-win'}`}>
-                        <Image fluid src={userPickImg} alt='user pick' className='h-50 w-50 mx-auto my-3 my-sm-5' />
+                    <Button disabled className={`w-100 cs-btn-def rounded-circle cs-btn-${userPick} ${result === 'You win' && 'cs-win'}`}>
+                        <Image fluid src={userPickImg} alt='user pick' className='h-50 w-50' />
                     </Button>
                 </Col>
                 <Col xs={{span: 12, order: 3}} lg={{span: 4, order: 2}} 
@@ -192,8 +197,8 @@ const GameStep2 = ({ userPick, housePick, setShowGameStep1, setShowGameStep2, se
                 <Col xs={{span: 5, order: 2}} lg={{span: 4, order: 3}} data-aos="fade-left" 
                      className='px-0 d-flex flex-column align-items-center justify-content-between'>
                     <h4 className='text-center h3 w-100 mb-5'>The house picked</h4>
-                    <Button disabled className={`w-100 py-3 mx-auto cs-btn-def rounded-circle cs-btn-${housePick} ${result === 'You lose' && 'cs-win'}`}>
-                        <Image fluid src={housePickImg} alt='house pick' className='h-50 w-50 mx-auto my-3 my-sm-5' />
+                    <Button disabled className={`w-100 mx-auto cs-btn-def rounded-circle cs-btn-${housePick} ${result === 'You lose' && 'cs-win'}`}>
+                        <Image fluid src={housePickImg} alt='house pick' className='h-50 w-50' />
                     </Button>
                 </Col>
             </Row>

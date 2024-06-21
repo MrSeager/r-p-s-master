@@ -16,8 +16,8 @@ const router = createBrowserRouter([
     element: <MainGame />,
   },
   {
-    path: "/r-p-s-l-s-master", // Define the path for Game_2
-    element: <Game_2 />, // Replace with the actual component name
+    path: "/r-p-s-l-s-master",
+    element: <Game_2 />,
   },
 ]);
 
