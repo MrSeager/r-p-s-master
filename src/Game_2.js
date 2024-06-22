@@ -64,9 +64,11 @@ const Game_2 = () => {
                                          setHouseScore={setHouseScore}
                                          userPick={userPick}
                                          housePick={housePick} />}
-            <Button onClick={toggleRulesPage} className='cs-btn text-uppercase px-4 py-2'>Rules</Button> 
+            <Container className='w-50 d-flex flex-row align-items-center justify-content-around my-5 my-lg-0'>
+                <Button onClick={handleLaunchGame1} className='cs-btn-back px-2 py-2 py-lg-3'><IoIosArrowBack  /></Button>
+                <Button onClick={toggleRulesPage} className='cs-btn text-uppercase px-4 py-2'>Rules</Button> 
+            </Container>
             {showRules && <RulesPage setShowRules={setShowRules} />}
-            <Button onClick={handleLaunchGame1} className='cs-btn-back px-2 py-3'><IoIosArrowBack  /></Button>
         </Container>
     );
 };
